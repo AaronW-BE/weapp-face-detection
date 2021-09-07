@@ -1,0 +1,13 @@
+<view class="face-detect-container {{faceDetectResult.confArray && faceDetectResult.confArray.global > 0.85 ? 'valid': 'invalid'}}"
+      wx:if="{{faceDetectInit}}">
+    <view class="face-camera-container">
+        <camera device-position="front" class="face-camera" />
+    </view>
+    <view class="status-text">
+        可信度：
+        {{faceDetectResult.confArray && faceDetectResult.confArray.global }}
+    </view>
+</view>
+<view wx:else>
+    <view class="init-fail-tips">人脸检测初始化失败</view>
+</view>
